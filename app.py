@@ -51,7 +51,10 @@ def predict():
         print("❌ Error processing image:", str(e))
         return jsonify({"error": "Failed to process image"}), 500
 
+import os
+
 if __name__ == "__main__":
-    print("🚀 Starting Flask server...")  
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))  # Render environment variable use karo
+    print(f"🚀 Starting Flask server on port {port}...")
+    app.run(host="0.0.0.0", port=port)
 
