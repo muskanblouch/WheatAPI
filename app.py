@@ -28,11 +28,11 @@ def predict():
     print("📢 Received a request!")
     print("📢 Request files:", request.files)
     
-    if "file" not in request.files:
+    if "image" not in request.files:
         print("❌ No file found in request!")  
         return jsonify({"error": "No file uploaded"}), 400
 
-    file = request.files["file"]
+    file = request.files["image"]
     print("📢 File received:", file.filename)
 
     if file.filename == "":
